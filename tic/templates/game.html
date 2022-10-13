@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div>
+        <div class="head">
+            <h1>Вітаю {{ name }}</h1>
+            <div class="container">
+                <h2 class="message"></h2>
+            </div>
+            <div class="row" id="grid-section">
+                <ul id="grid"></ul>
+            </div>
+            <button id="reset" class="btn btn-primary">Скинути</button>
+        </div>
+    </div>
+{% endblock content %}

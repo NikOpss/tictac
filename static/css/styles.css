@@ -1,0 +1,83 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: snow;
+  font-family: "Comfortaa", sans-serif;
+}
+
+h1,
+h2,
+h5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lobster", serif;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message {
+  color: blueviolet;
+  font-size: 1.5em;
+  padding-bottom: 1em;
+}
+
+#grid-section {
+  margin: 3em 0;
+}
+
+#grid {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+li {
+  cursor: pointer;
+  border: 1px solid #000;
+  width: 100px;
+  height: 100px;
+  display: block;
+  float: left;
+  font-size: 3em;
+  text-align: center;
+  padding: 0.5em;
+  transition: all ease 0.3s;
+}
+
+ul li:not(.green-cell):hover {
+  background-color: rgb(192, 192, 192);
+}
+
+.green-cell {
+  color: white;
+  background-color: lime;
+}
+
+.btn-primary,
+.btn-primary:focus {
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px 15px;
+  width: fit-content;
+  background-color: royalblue;
+  transition: all ease 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: darkblue;
+}

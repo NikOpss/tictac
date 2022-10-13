@@ -1,0 +1,54 @@
+{% load static %}
+<link rel='stylesheet' href='{% static "/css/index.css" %}'>
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<script src="/static/bootstrap/js/bootstrap.bundle.min.js"></script>
+{% block title %}
+    <title>Головна сторінка</title>
+{% endblock %}
+{% block content %}
+    <div>
+        <h1>
+            Хрестики нолики
+        </h1>
+        <form class="text-left"
+              action="{% url 'game' %}"
+              method="POST">
+            {% csrf_token %}
+            <p>Введіть ім'я: </p>
+            <label>
+                <input name='name'>
+            </label>
+            <button type="submit" class="button">
+                Зберегти
+            </button>
+        </form>
+
+        <button class="btn btn-outline-info knopka" data-bs-toggle="modal" data-bs-target="#RulesModal">Правила
+            гри
+        </button>
+    </div>
+
+    <!-- CategoryDelete Modal -->
+    <div class="modal fade" id="RulesModal" tabindex="-1" aria-labelledby="RulesModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="RulesModalLabel">Правила гри</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>1. Вписати своє ім'я</p>
+                    <p>2. Включити "ЛП" Мілани Хамелової</p>
+                    <p>3. Перемогти найсильнішого бота</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
