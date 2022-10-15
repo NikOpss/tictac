@@ -1,3 +1,8 @@
+:root {
+  --gray: gray;
+  --ligth-gray: rgb(220, 220, 220);
+}
+
 html {
   box-sizing: border-box;
 }
@@ -8,6 +13,9 @@ html {
 }
 
 body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
   background-color: snow;
   font-family: "Comfortaa", sans-serif;
 }
@@ -15,26 +23,45 @@ body {
 h1,
 h2,
 h5 {
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: "Lobster", serif;
 }
 
-.head {
+.game-container {
+  height: 100%;
+  width: 100%;
+  gap: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .message {
-  color: blueviolet;
-  font-size: 1.5em;
-  padding-bottom: 1em;
+  color: purple;
 }
 
 #grid-section {
-  margin: 3em 0;
+  position: relative;
+}
+
+.time-wrapper {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(136, 136, 136, 0.7);
+  text-align: center;
 }
 
 #grid {
@@ -46,7 +73,7 @@ h5 {
 
 li {
   cursor: pointer;
-  border: 1px solid #000;
+  border: 1px solid gray;
   width: 100px;
   height: 100px;
   display: block;
@@ -81,3 +108,101 @@ ul li:not(.green-cell):hover {
 .btn-primary:hover {
   background-color: darkblue;
 }
+
+.my-custom-select [slot="button"] {
+  display: flex;
+  align-content: center;
+}
+.my-custom-select button {
+  padding: 5px;
+  border: none;
+  background: #f06;
+  border-radius: 5px 0 0 5px;
+  color: white;
+  font-weight: bold;
+}
+.my-custom-select .label {
+  padding: 5px;
+  border: 1px solid #f06;
+  border-radius: 0 5px 5px 0;
+}
+
+/* SELECT */
+
+select {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  padding: 0 1em;
+  background-color: var(--ligth-gray);
+  background-image: none;
+  cursor: pointer;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select-wrapper {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+/* Arrow */
+.select-wrapper::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: var(--gray);
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select-wrapper:hover::after {
+  color: #f39c12;
+}
+
+.hide {
+  display: none;
+}
+
+/* END SELECT */
+
+/* HISTORY TABLE */
+
+.history-table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.history-table td,
+.history-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.history-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.history-table tr:hover {
+  background-color: #ddd;
+}
+
+.history-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
+}
+
+/* END HISTORY TABLE */

@@ -1,16 +1,63 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div>
-        <div class="head">
-            <h1>Вітаю {{ name }}</h1>
-            <div class="container">
-                <h2 class="message"></h2>
-            </div>
-            <div class="row" id="grid-section">
-                <ul id="grid"></ul>
-            </div>
-            <button id="reset" class="btn btn-primary">Скинути</button>
+    <div class="game-container">
+      <h1>Вітаю {{ name }}</h1>
+      <h1>Хрестики нолики</h1>
+
+      <div class="select-wrapper">
+        <select class="select">
+          <option selected hidden value="hint">За кого бажаєте грати?</option>
+          <option value="X">Грати за X</option>
+          <option value="O">Грати за O</option>
+        </select>
+      </div>
+      <button id="reset" class="btn btn-primary">Скинути</button>
+
+      <div class="container"></div>
+      <div class="row" id="grid-section">
+        <ul id="grid"></ul>
+        <div class="time-wrapper hide">
+          <h2 class="message"></h2>
+          <h2 class="rounds-start-time"></h2>
         </div>
+      </div>
+
+      <div class="history-table-wrapper hide">
+        <table class="history-table">
+          <tr>
+            <th>Гра</th>
+            <th>Переможець</th>
+          </tr>
+        </table>
+      </div>
+    <button class="btn btn-outline-info knopka" data-bs-toggle="modal" data-bs-target="#RulesModal">Змінити ім'я
+        </button>
     </div>
+
+
+    <div class="modal fade" id="RulesModal" tabindex="-1" aria-labelledby="RulesModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="RulesModalLabel">Змінення імені</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="text-left"
+              action="{% url 'game' %}"
+              method="POST">
+            {% csrf_token %}
+            <p>Введіть ім'я: </p>
+            <label>
+                <input name='name'>
+            </label>
+            <button type="submit" class="button">
+                Зберегти
+            </button>
+        </form>
+            </div>
+        </div>
 {% endblock content %}
